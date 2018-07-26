@@ -1,0 +1,75 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+
+            <h2>Welcome to The Integrify Photos Gallery - Home Page</h2>
+
+            <% include ../partials/menu %>
+
+                <h3>List of students:</h3>
+                <% students.map((student, index) =>{ %>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="/images/<%=student.src%>" alt="<%= student.alt %>" class="media-object" style="width:60px">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <%= student.firstName %>
+                                    <%= student.lastName %>
+                                        <small>
+                                            <i>Joined On
+                                                <%=student.joinedOn%>
+                                        </small>
+                            </h4>
+                            <span>
+                                <%=student.title%>
+                            </span>
+                            <p>
+                                <span>
+                                    <a href="/details/<%= student._id %>" data-toggle="tooltip" data-placement="top" title="Show Student Details">
+                                        <i class="fa fa-address-card" style="font-size:24px;color:red"></i>
+                                    </a>
+
+                                    <a href="/update/<%= student._id %>" data-toggle="tooltip" data-placement="top" title="Update this Student">
+                                        <i class="fa fa-edit" style="font-size:24px;color:red"></i>
+                                    </a>
+
+                                    <a href="/delete/<%= student._id %>/<%= student.src %>" data-toggle="tooltip" data-placement="auto" title="Delete this Studtent">
+                                        <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
+                                    </a>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <% });%>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>

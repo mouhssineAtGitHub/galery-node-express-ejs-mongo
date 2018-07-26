@@ -1,0 +1,85 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+
+            <h2>Welcome to The Integrify Photos Gallery - Details page</h2>
+
+            <% include ../partials/menu %>
+
+                <div class="card">
+                    <img src="/images/<%=student.src %>" alt="John" style="width:100%">
+                    <h2>
+                        <%=student.firstName %>
+                            <%=student.lastName %>
+                    </h2>
+                    <p class="title">
+                        <%=student.title %>
+                    </p>
+                    <p> I am
+                        <%=student.nationality %>
+                    </p>
+                    <p>
+                        <span class="titles">skills:</span>
+                        <%=student.skills.join(" ") %>
+                    </p>
+                    <p>
+                        <span class="titles">why Softer Developer:</span>
+                        <%=student.whySofterDeveloper %>
+                    </p>
+                    <p>
+                        <span class="titles">long Term Vision:</span>
+                        <%=student.longTermVision %>
+                    </p>
+                    <p>
+                        <span class="titles">motivates Me:</span>
+                        <%=student.motivatesMe %>
+                    </p>
+                    <p>
+                        <span class="titles">favorite Quote:</span>
+                        <%=student.favoriteQuote %>
+                    </p>
+                    <p>
+                        <span class="titles">joined On:</span>
+                        <%=student.joinedOn %>
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-dribbble"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <p>
+                        <button class="mybutton">Contact</button>
+                    </p>
+                </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
